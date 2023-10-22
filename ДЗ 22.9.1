@@ -31,11 +31,12 @@ sorted_sequence = sorted(sequence)
 
 print("Отсортированная последовательность чисел:", sorted_sequence)
 
+# функция binary_search возвращает индекс позиции, где находится элемент,
+# который меньше введенного числа, а следующий за ним элемент больше или равен этому числу.
 index = binary_search(sorted_sequence, target_number)
 
 if index != -1:
     print(f"Число {target_number} найдено на позиции {index}.")
 else:
     print("Число не найдено.")
-
 
