@@ -1,0 +1,41 @@
+def binary_search(numbers, target):
+    left = 0
+    right = len(numbers) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+        if numbers[mid] < target:
+            left = mid + 1
+        elif numbers[mid] > target:
+            right = mid - 1
+        else:
+            return mid
+
+    return -1
+
+# запрашиваем у пользователя последовательность чисел через пробел
+# преобразуем введенную последовательность в список чисел,
+# используя метод split() и функцию map().
+input_sequence = input("Введите последовательность чисел через пробел: ")
+sequence = list(map(int, input_sequence.split()))
+
+# запрашиваем у пользователя число для поиска (target_number).
+target_number = int(input("Введите число для поиска: "))
+
+print("Введённая пользователем оследовательность чисел:", sequence)
+print("Введенное пользователем число:", target_number)
+
+# сортируем список sequence с помощью встроенной функции sorted()
+# сохраняем отсортированный список в переменной sorted_sequence
+sorted_sequence = sorted(sequence)
+
+print("Отсортированная последовательность чисел:", sorted_sequence)
+
+index = binary_search(sorted_sequence, target_number)
+
+if index != -1:
+    print(f"Число {target_number} найдено на позиции {index}.")
+else:
+    print("Число не найдено.")
+
+
